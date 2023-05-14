@@ -42,7 +42,7 @@ const Body = ()=>{
       padding:"10px 15px",width:"20rem",margin:"0 2rem",border:"1px solid #0f0f0f",borderRadius:"1.5rem"
     }
     const [restaurantList,setrestaurantList] = useState(resdata.data);
-    const [inputVal,setinputVal] = useState(resdata.data);
+    const [inputVal,setinputVal] = useState("");
     
     return (
       <div className="body">
