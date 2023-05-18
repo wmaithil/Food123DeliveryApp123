@@ -2,48 +2,30 @@ import { React,useState } from "react";
 import RestaurantCard from "./RestaurantCard"; 
 
 const Body = ()=>{
-  const resdata={
-    data:[
-      {
-      name:"Amazing food",
-      image:"Image Not available",
-      rating:"4.4",
-      cusine:"Indian",
-      veg:"true",
-      costfortwo:"200"
-    },
-    {
-      name:"Awesome food",
-      image:"Image Not available",
-      rating:"4.2",
-      cusine:"Multi cusine",
-      veg:"false",
-      costfortwo:"150"
-    },
-    {
-      name:"Excellent Pure Veg",
-      image:"Image Not available",
-      rating:"4.6",
-      cusine:"Indian",
-      veg:"true",
-      costfortwo:"220"
-    },
-    {
-      name:"Fresh and Amazing food",
-      image:"Image Not available",
-      rating:"4.0",
-      cusine:"Multi cusine",
-      veg:"false",
-      costfortwo:"200"
-    },
-  ]
-  }
+  
     const searchInputStyle={
       padding:"10px 15px",width:"20rem",margin:"0 2rem",border:"1px solid #0f0f0f",borderRadius:"1.5rem"
     }
-    const [restaurantList,setrestaurantList] = useState(resdata.data);
+    const [restaurantList,setrestaurantList] = useState([]);
     const [inputVal,setinputVal] = useState("");
     
+    useEffect(()=>{
+      getData();
+    },[])
+
+    //function to call Api
+    async function getData(){
+      //fetch data from API 
+      const resApiData= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.225535&lng=72.845748&page_type=DESKTOP_WEB_LISTING");
+      const resData= await resApiData.json();
+      console.log(resData);
+      //storing the restaurant list
+      const resList= resData?.data?.cards[2]?.data?.data?.cards;
+      console.log("Res List",resList);
+      //update the state of restaurantList 
+      setrestaurantList(resList);
+    }
+  
     return (
       <div className="body">
         <div className="search">
@@ -56,9 +38,9 @@ const Body = ()=>{
         </div>
         <div className="resContainer">
           {
-            restaurantList.map((i,index) => {
+            restaurantList.map((i) => {
               return (
-                <RestaurantCard key={index} props={i}/>
+                <RestaurantCard key={i.data.id} props={i.data}/>
               )
             })
           }
