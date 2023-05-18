@@ -16,7 +16,7 @@ const Body = ()=>{
     //function to call Api
     async function getData(){
       //fetch data from API 
-      const resApiData= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.225535&lng=72.845748&page_type=DESKTOP_WEB_LISTING");
+      const resApiData= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat={latitude}&lng={longitude}&page_type=DESKTOP_WEB_LISTING");
       const resData= await resApiData.json();
       console.log(resData);
       //storing the restaurant list
