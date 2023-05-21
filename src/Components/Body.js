@@ -38,7 +38,15 @@ const Body = ()=>{
     }
 
     return (restaurantList.length===0) ? (
-      <Shimmer/>
+      <div className="resContainer">
+        {
+          Array(8).fill(1).map((i,index)=>{
+            return (
+              <Shimmer key={index}/>
+            ) 
+          })
+        }
+      </div>
     ) : (
       <>
         <div className="search">
