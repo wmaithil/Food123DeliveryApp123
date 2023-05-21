@@ -37,7 +37,7 @@ const Body = ()=>{
       setrestaurantList(resList);
     }
 
-    return (restaurantList.length===0) ? (
+    return (allRestaurantList.length===0) ? (
       <div className="resContainer">
         {
           Array(8).fill(1).map((i,index)=>{
