@@ -1,13 +1,15 @@
-import { React,useState,useEffect } from "react";
+import { React,useEffect,useState } from "react";
 import RestaurantCard from "./RestaurantCard"; 
 import Shimmer from "./Shimmer";
 
 const filterRestaurants = (key, listValues)=>{
+  console.log("list",listValues);
   const filterList = listValues.filter(i=>{
     return(
       i?.data?.name?.toUpperCase()?.includes(key.toUpperCase())
     )
   });
+  console.log("filter ",filterList);
   return filterList;
 };
 
@@ -37,17 +39,7 @@ const Body = ()=>{
       setrestaurantList(resList);
     }
 
-    return (allRestaurantList.length===0) ? (
-      <div className="resContainer">
-        {
-          Array(8).fill(1).map((i,index)=>{
-            return (
-              <Shimmer key={index}/>
-            ) 
-          })
-        }
-      </div>
-    ) : (
+    return (
       <>
         <div className="search">
           <input style={searchInputStyle} 
@@ -61,15 +53,31 @@ const Body = ()=>{
             }
           } className="filterbtn">Filter </button>
         </div>
-        <div className="resContainer">
-          {
-            restaurantList.map((i) => {
-              return (
-                <RestaurantCard key={i.data.id} {...i.data}/>
+        {
+          (allRestaurantList.length===0) ? 
+            (
+              <div className="resContainer">
+                {
+                  Array(8).fill(1).map((i,index)=>{
+                    return (
+                      <Shimmer key={index}/>
+                    ) 
+                  })
+                }
+              </div>
+            ) : 
+            (
+                <div className="resContainer">
+                  {
+                    restaurantList.map((i) => {
+                      return (
+                        <RestaurantCard key={i.data.id} {...i.data}/>
+                      )
+                    })
+                  }
+                </div>
               )
-            })
-          }
-        </div>
+        }
       </>
     )
 }
