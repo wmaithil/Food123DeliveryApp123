@@ -28,6 +28,7 @@
     margin:0 10px;
     padding: 0 10px;
 }
+
 .search{
     padding: 1rem;
     display: flex;
@@ -42,21 +43,49 @@
 }
 
 .resCard{
-     width: 14rem;
-     height: 16.5rem;
-     border: 1px solid black;
-     padding: 0.6rem;
-     margin: 0.6rem 3rem;
- }
-.resCard:hover{
+    width: 18rem;
+    height: 20rem;
+    padding: 0.6rem;
+    margin: 0.6rem 1rem;
+}
+
+ .resCard:hover{
     background-color: rgb(238, 238, 238);
     cursor: pointer;
  }
 
- .cardelement{
-     padding: 0 10px;
+.resCardShimmer{
+    width: 18rem;
+    height: 18rem;
+    padding: 0.6rem;
+    margin: 0.6rem 1rem;
+    /* background-color: rgb(224, 219, 219); */
+}
+
+.shimmerHeader{
+    width: 10rem;
+    height: 1.2rem;
+    background-color: #f3f2f2;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.shimmerline{
+    width: 14rem;
+    height: 0.8rem;
+    background-color: #f6f6f6;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.cardelement{
+    padding:0 10px;
  }
 
 .resCard h4, p{
     margin: 3px 0;
+}
+
+.menu{
+    padding: 10px;
+    margin: 10px;
 }
