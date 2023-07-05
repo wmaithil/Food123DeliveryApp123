@@ -1,5 +1,8 @@
-import React from "react";
+import {React} from "react";
+import {Link} from "react-router-dom"
+
 const Header = ()=>{
+
     return (
       <div className="header">
         <div className="headerContainer">
@@ -8,10 +11,19 @@ const Header = ()=>{
           </div>
           <div className="nav-items">
             <ul>
-              <li>Home</li>
-              <li>About Us</li>
-              <li>Contact Us</li>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">About Us</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact Us</Link>
+              </li>
               <li>Cart</li>
+              <li> 
+                <Link to={"/grocery"}>Grocery</Link>
+              </li>
             </ul>
           </div>
         </div>
