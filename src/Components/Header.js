@@ -5,23 +5,23 @@ const Header = ()=>{
 
     return (
       <div className="header">
-        <div className="headerContainer">
-          <div className="logocontainer">
+        <div className="flex justify-between ">
+          <div className="p-4 m-4">
             MyFoodApp
           </div>
-          <div className="nav-items">
-            <ul>
-              <li>
+          <div className="flex items-center">
+            <ul className="flex p-4 m-4 ">
+              <li className="px-4">
                 <Link to="/">Home</Link>
               </li>
-              <li>
+              <li className="px-4">
                 <Link to="/about">About Us</Link>
               </li>
-              <li>
+              <li className="px-4">
                 <Link to="/contact">Contact Us</Link>
               </li>
               <li>Cart</li>
-              <li> 
+              <li className="px-4"> 
                 <Link to={"/grocery"}>Grocery</Link>
               </li>
             </ul>
