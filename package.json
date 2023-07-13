@@ -37,7 +37,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.21.8",
     "parcel": "^2.8.3",
-    "@babel/core":"^7.21.8"
+    "postcss": "^8.4.25",
+    "tailwindcss": "^3.3.2"
   }
 }
