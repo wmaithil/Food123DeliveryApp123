@@ -43,6 +43,19 @@ const Body = ()=>{
 
     const isUserOnline = useOnlineStatus();
 
+    if(allRestaurantList.length===0){
+      return (
+        <div className="resContainer">
+          {
+            Array(8).fill(1).map((i,index)=>{
+              return (
+                <Shimmer key={index}/>
+              ) 
+            })
+          }
+        </div>)
+    }
+
     return (
       <>
         <div className="search">
@@ -59,31 +72,19 @@ const Body = ()=>{
           
           {isUserOnline ? <h1> Online</h1> : <h1>Offline</h1>}
         </div>
-        {
-          (allRestaurantList.length===0) ? 
-            (
-              <div className="resContainer">
-                {
-                  Array(8).fill(1).map((i,index)=>{
-                    return (
-                      <Shimmer key={index}/>
-                    ) 
-                  })
-                }
-              </div>
-            ) : 
-            (
-                <div className="resContainer">
-                  {
-                    restaurantList.map((i) => {
-                      return (
-                        <Link key={i.data.id} to={"/restaurants/"+i.data.id}><RestaurantCard {...i.data}/></Link>
-                      )
-                    })
-                  }
-                </div>
+        <div className="flex flex-wrap">
+          {
+            restaurantList.map((i) => {
+              return (
+                <Link 
+                  key={i.data.id} 
+                  to={"/restaurants/"+i.data.id}>
+                  <RestaurantCard {...i.data}/>
+                </Link>
               )
-        }
+            })
+          }
+        </div>
       </>
     )
 }
