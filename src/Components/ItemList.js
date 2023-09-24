@@ -1,7 +1,13 @@
 import React from "react";
 import {Restaurant_Image_URL} from "../Utils/Constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../Utils/cartSlice";
 
 const ItemList = ({items}) => {
+  const dispatch = useDispatch(); 
+  const handleAddItem = (item)=>{
+    dispatch(addItem(item))
+  }
   return (
     <div>
         {items.map(i => {
@@ -17,7 +23,10 @@ const ItemList = ({items}) => {
                   </div>
                   <div className="w-3/12 p-1 mb-4" >
                     <div className="absolute">
-                      <button className="bg-black text-white font-thin p-1 ml-12 rounded-lg" type="submit"> Add +</button>
+                      <button 
+                        className="bg-black text-white font-thin p-1 ml-12 rounded-md hover:bg-red-950"
+                        onClick={()=>handleAddItem(i.card.info)}
+                        > Add +</button>
                     </div>
                     <img src={Restaurant_Image_URL+i.card?.info?.imageId} alt=""/>
                   </div>

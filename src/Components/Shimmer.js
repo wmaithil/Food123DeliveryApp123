@@ -1,11 +1,15 @@
-import React from 'react';
+import React from 'react'
 
 const Shimmer = () => {
   return (
     <>
-        <div className="resCard">
-        <img style={{width:"265px",height:"175px",borderRadius:"9px",backgroundColor:"#f6f6f6"}}  alt=""/>
-          
+        <div className="resCardShimmer">
+        <div style={{width:"266px",height:"160px",backgroundColor:"#f6f6f6",margin:"10px"}}  /> 
+        <div className=" shimmerHeader" />
+        <div className=" shimmerline" />
+        <div className=" shimmerline" />
+        <div className=" shimmerline" />
+        
       </div>
     </>
   )
