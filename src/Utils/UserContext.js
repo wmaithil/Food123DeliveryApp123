@@ -1,7 +1,8 @@
-import {createContext} from 'react'
+import {createContext} from 'react';
 
 const UserContext = createContext({
-    loggedInUser : "Default"
+    searchText : "",
+    buttonClicked : false,
 });
 
 export default UserContext;
